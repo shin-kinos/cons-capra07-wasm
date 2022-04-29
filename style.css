@@ -192,6 +192,7 @@ input[type=checkbox]:checked + .customCheckbox::after {
 	margin      : 0em auto;
 	color       : #000000;
 	background  : #FFFFFF;
+	overflow    : hidden;
 
 	position      : relative;
 	border        : 2px solid #000000;
