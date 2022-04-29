@@ -1,0 +1,256 @@
+
+a:link, a:visited, a:hover, a:active {
+	color : #41AEA9;
+}
+
+.style_link {
+	position: relative;
+	font-size        : 15px;
+	font-family      : 'Menlo', 'Lucida Console', 'Monaco', 'Consolas', monospace;
+	font-weight      : 700;
+	color            : #000000;
+	width            : 100%;   
+	margin           : 0 auto; 
+	max-width        : 650px;  
+
+}
+
+.style_link .inst {
+	position : absolute;
+	left     : 20%;
+}
+
+.style_link .source {
+	position : absolute;
+	right    : 20%;
+}
+
+.style_title {
+	font-size        : 60px;
+	font-family      : Arial;
+	font-weight      : 700;
+	color            : #FFFFFF;
+	background-color : #3FA796;
+	text-align       : center;
+}
+
+.style_subtitle {
+	font-size        : 12px;
+	font-family      : 'Menlo', 'Lucida Console', 'Monaco', 'Consolas', monospace;
+	color            : #FFFFFF;
+	background-color : #084594;
+	text-align       : center;
+}
+
+.style_input {
+	font-size        : 15px;
+	font-family      : 'Menlo', 'Lucida Console', 'Monaco', 'Consolas', monospace;
+	color            : #000000;
+	background-color : #FDB827;
+	font-weight      : 400;
+	height           : 120px; /* 20px */
+	/* Let it move to the centre */
+	width            : 100%;   
+	margin           : 0 auto; 
+	max-width        : 650px;  
+	text-align       : left; 
+}
+
+.style_options {
+	font-size        : 15px;
+	font-family      : 'Menlo', 'Lucida Console', 'Monaco', 'Consolas', monospace;
+	color            : #FFFFFF;
+	background-color : #5800FF; /* #3FA796; */
+	font-weight      : 400;
+	height           : 250px; /* 20px */
+	/* Let it move to the centre */
+	width            : 100%;
+	margin           : 0 auto;
+	max-width        : 650px;
+	text-align       : left;
+}
+
+pre {
+	margin                     : 1em 0;
+	font-family                : 'Menlo', 'Lucida Console', 'Monaco', 'Consolas', monospace;
+	padding                    : 1em;
+	border-radius              : 5px;
+	color                      : #000000;
+	background-color           : #e7edf3;
+	overflow-x                 : auto;
+	-webkit-overflow-scrolling : touch;
+}
+
+.customButton{
+	font-family      : Arial;
+	font-size        : 20px;
+	font-weight      : 700;
+	height           : 20px; /* 20px */
+	padding          : 5px 5px; /* 5px 5px */
+	background-color : #F900BF;
+	border           : 2px solid #F900BF;
+	display          : block;
+	text-decoration  : none;
+	border-radius    : 0px;
+	color            : #FFFFFF;
+	width            : 100%;
+	margin           : 0 auto;
+	max-width        : 150px;
+	text-align       : center;
+}
+.customButton:hover {
+	box-shadow : none;
+	color      : #F900BF;
+	background : #ffffff;
+}
+
+.customInput {
+	border        : 2px solid #000000;
+	background    : #FFFFFF;
+	border-radius : 8px;
+	padding       : 3px 7px 3px 7px;
+	cursor        : pointer;
+	margin-left   : 10px;
+}
+
+label.customInput {
+	font-weight : bold;
+	font-style  : italic;
+	color       : #000000;
+}
+
+input[type=checkbox] {
+	display: none;
+}
+.customCheckbox {
+	box-sizing : border-box;
+	cursor     : pointer;
+	display    : inline-block;
+	padding    : 5px 30px;
+	position   : relative;
+	width      : auto;
+}
+.customCheckbox::before {
+	background    : #FFFFFF;
+	border        : 2px solid #000000;
+	border-radius : 4px;
+	content       : " ";
+	color         : #FFFFFF;
+	display       : block;
+	height        : 16px;
+	left          : 10px;
+	margin-top    : -10px;
+	position      : absolute;
+	top           : 50%;
+	width         : 16px;
+}
+
+.customCheckbox::after {
+	border-right  : 6px solid #000000;
+	border-bottom : 3px solid #000000;
+	content       : "";
+	display       : block;
+	height        : 20px;
+	left          : 12px;
+	margin-top    : -16px;
+	opacity       : 0;
+	position      : absolute;
+	top           : 50%;
+	transform     : rotate(45deg);
+	width         : 9px;
+}
+
+input[type=checkbox]:checked + .customCheckbox::before {
+	border-color : #000000;
+}
+input[type=checkbox]:checked + .customCheckbox::after {
+	opacity : 1;
+	border-color  : #3FA796;
+}
+
+.customSelect select::-ms-expand {
+	display: none;
+}
+
+.customSelect {
+	font-size   : 15px;
+	overflow    : hidden;
+	font-family : 'Menlo', 'Lucida Console', 'Monaco', 'Consolas', monospace;
+	font-weight : bold;
+	font-style  : italic;
+	width       : 90%;
+	max-width   : 260px;
+	height      : 25px;
+	margin      : 0em auto;
+	color       : #000000;
+	background  : #FFFFFF;
+
+	position      : relative;
+	border        : 2px solid #000000;
+	border-radius : 8px;
+}
+
+.customSelect select {
+	width              : 100%;
+	top                : 0.4em;
+	padding-right      : 1em;
+	cursor             : pointer;
+	text-indent        : 0.01px;
+	text-overflow      : ellipsis;
+	border             : none;
+	outline            : none;
+	border-color       : #000000;
+	background         : #FFFFFF;
+	background-image   : none;
+	box-shadow         : none;
+	-webkit-appearance : none;
+	appearance         : none;
+}
+
+.toolTip {
+	position : relative;
+	cursor   : pointer;
+}
+
+label.toolTip {
+	position       : relative;
+	display        : inline;
+	font-size      : 12px;
+	/*overflow       : hidden; */
+	vertical-align : super;
+}
+
+.toolTip-content {
+	display        : inline-block;
+	opacity        : 0;
+	visibility     : hidden;
+	position       : absolute;
+	z-index        : 1;
+	top            : -20%;
+	left           : 200%;
+	padding        : 5px;
+	max-width      : 600px;
+	min-width      : 300px;
+	font-size      : 12px;
+	font-weight    : bold;
+	line-height    : 1.2;
+	background     : #251D3A;
+	color          : #FFFFFF;
+	border-radius  : 3px;
+	transition     : opacity 0.9s;
+}
+
+.toolTip-content:before {
+	content      : "";
+	position     : absolute;
+	top          : 3%;
+	right        : 100%;
+	border-width : 5px;
+	border-style : solid;
+	border-color : transparent #1E2021 transparent transparent;
+}
+
+.toolTip:hover .toolTip-content {
+	visibility : visible;
+	opacity    : 1;
+}
