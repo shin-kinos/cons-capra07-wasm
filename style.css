@@ -180,7 +180,6 @@ input[type=checkbox]:checked + .customCheckbox::after {
 
 .customSelect {
 	font-size   : 15px;
-	overflow    : hidden;
 	font-family : 'Menlo', 'Lucida Console', 'Monaco', 'Consolas', monospace;
 	font-weight : bold;
 	font-style  : italic;
