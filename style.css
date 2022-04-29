@@ -61,7 +61,7 @@ a:link, a:visited, a:hover, a:active {
 }
 
 .style_options {
-	font-size        : 15px;
+	font-size        : 15px auto;
 	font-family      : 'Menlo', 'Lucida Console', 'Monaco', 'Consolas', monospace;
 	color            : #FFFFFF;
 	background-color : #5800FF; /* #3FA796; */
