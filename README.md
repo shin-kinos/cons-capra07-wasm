@@ -2,6 +2,8 @@
 
 A Rust WebAssembly online web application that scores residue conservation a site in a Multiple Sequence Alignment ( MSA ) by using Jensen-Shannon divergence. 📦🦀 
 
+[GitHub Pages](https://shin-kinos.github.io/cons-capra07-wasm/) 
+
 ## Description 
 
 * This program scores residue conservation in each site of a MSA. 
