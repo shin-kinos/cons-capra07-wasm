@@ -1,0 +1,12 @@
+{
+  "name": "cons-capra07-wasm",
+  "version": "0.1.0",
+  "files": [
+    "cons_capra07_wasm_bg.wasm",
+    "cons_capra07_wasm.js",
+    "cons_capra07_wasm.d.ts"
+  ],
+  "module": "cons_capra07_wasm.js",
+  "types": "cons_capra07_wasm.d.ts",
+  "sideEffects": false
+}
