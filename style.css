@@ -69,6 +69,7 @@ a:link, a:visited, a:hover, a:active {
 	padding-left     : 1%;
 	padding-bottom   : 1%;
 	overflow         : hidden;
+	text-overflow    : ellipsis;
 	/*height           : 250px;*/
 	/* Let it move to the centre */
 	width            : 100%;
