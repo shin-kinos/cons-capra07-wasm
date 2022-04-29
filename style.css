@@ -4,7 +4,7 @@ a:link, a:visited, a:hover, a:active {
 }
 
 .style_link {
-	position: relative;
+	position         : relative;
 	font-size        : 15px;
 	font-family      : 'Menlo', 'Lucida Console', 'Monaco', 'Consolas', monospace;
 	font-weight      : 700;
@@ -43,7 +43,7 @@ a:link, a:visited, a:hover, a:active {
 }
 
 .style_input {
-	font-size        : 15px;
+	font-size        : 15px auto;
 	font-family      : 'Menlo', 'Lucida Console', 'Monaco', 'Consolas', monospace;
 	color            : #000000;
 	background-color : #FDB827;
@@ -51,7 +51,6 @@ a:link, a:visited, a:hover, a:active {
 	/*height           : 120px;*/
 	padding-left     : 1%;
 	padding-bottom   : 1%;
-	overflow         : hidden;
 	/* Let it move to the centre */
 	width            : 100%;   
 	margin           : 0 auto;
@@ -68,8 +67,6 @@ a:link, a:visited, a:hover, a:active {
 	font-weight      : 400;
 	padding-left     : 1%;
 	padding-bottom   : 1%;
-	overflow         : hidden;
-	text-overflow    : ellipsis;
 	/*height           : 250px;*/
 	/* Let it move to the centre */
 	width            : 100%;
@@ -193,7 +190,6 @@ input[type=checkbox]:checked + .customCheckbox::after {
 	margin      : 0em auto;
 	color       : #000000;
 	background  : #FFFFFF;
-	overflow    : hidden;
 
 	position      : relative;
 	border        : 2px solid #000000;
