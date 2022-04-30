@@ -300,31 +300,49 @@ label.toolTip {
 	}
 
 	.style_input {
-		font-size                  : 0.9375rem;
-		font-family                : 'Menlo', 'Lucida Console', 'Monaco', 'Consolas', monospace;
-		color                      : #000000;
-		background-color           : #FDB827;
-		font-weight                : 400;
-		/*padding-left               : 1%;*/
-		padding-bottom             : 1%;
-		width                      : 100%;
-		margin                     : 0 auto;
-		min-width                  : 40.625rem;
-		text-align                 : center;
+		font-size        : 2vw; /* 0.9375rem; */
+		font-family      : 'Menlo', 'Lucida Console', 'Monaco', 'Consolas', monospace;
+		color            : #000000;
+		background-color : #FDB827;
+		font-weight      : 400;
+		/*padding-left     : 1%;*/
+		padding-bottom   : 1%;
+		width            : 100%;
+		margin           : 0 auto;
+		min-width        : 40.625rem;
+		text-align       : left;
 	}
 
 	.style_options {
-		font-size                  : 0.9375rem;
-		font-family                : 'Menlo', 'Lucida Console', 'Monaco', 'Consolas', monospace;
-		color                      : #FFFFFF;
-		background-color           : #5800FF; /* #3FA796; */
-		font-weight                : 400;
-		/*padding-left               : 1%;*/
-		padding-bottom             : 1%;
-		width                      : 100%;
-		margin                     : 0 auto;
-		min-width                  : 40.625rem;
-		text-align                 : center;
+		font-size        : 2vw; /* 0.9375rem; */
+		font-family      : 'Menlo', 'Lucida Console', 'Monaco', 'Consolas', monospace;
+		color            : #FFFFFF;
+		background-color : #5800FF; /* #3FA796; */
+		font-weight      : 400;
+		/*padding-left     : 1%;*/
+		padding-bottom   : 1%;
+		width            : 100%;
+		margin           : 0 auto;
+		min-width        : 40.625rem;
+		text-align       : left;
+	}
+
+	.customSelect {
+		font-size   : 2vw;
+		overflow    : hidden;
+		font-family : 'Menlo', 'Lucida Console', 'Monaco', 'Consolas', monospace;
+		font-weight : bold;
+		font-style  : italic;
+		width       : 25vw;
+		min-width   : 2vw;
+		height      : 1.5625rem;
+		margin      : 0em auto;
+		color       : #000000;
+		background  : #FFFFFF;
+	
+		position      : relative;
+		border        : 0.125rem solid #000000;
+		border-radius : 0.5rem;
 	}
 
 	.customButton{
@@ -341,8 +359,8 @@ label.toolTip {
 		color            : #FFFFFF;
 		width            : 100%;
 		margin           : 0 auto;
-		/*max-width        : 9.375rem;*/
-		min-width        : 40.625rem;
+		max-width        : 9.375rem;
+		/*min-width        : 40.625rem;*/
 		text-align       : center;
 	}
 
