@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="./style.css">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Scoring residue conservation</title>
 </head>
 <body>
@@ -20,7 +20,7 @@
 
 	<div class="style_link">
 		<a class="inst" href="https://github.com/shin-kinos/cons-capra07-wasm/blob/main/README.md" target="_blank" rel="noopener noreferrer">Instruction</a>
-		<a class="source" href="https://github.com/shin-kinos/cons-capra07" target="_blank" rel="noopener noreferrer">🦀Rust source</a>
+		<a class="source" href="https://github.com/shin-kinos/cons-capra07" target="_blank" rel="noopener noreferrer">🦀 Rust source</a>
 	</div>
 
 	<br>
@@ -44,7 +44,7 @@
 		<p>
 			<p style="font-family : Arial; font-size : 20px; text-align : center; font-weight : 700;">Options</p>
 			<label for="bgdist" style="white-space : pre-wrap;">Background distribution<label class="toolTip">🤔<span class="toolTip-content">To calculate Relative Entropy in each site of a MSA, 8 types of amino acid distribution as background distribution are available in this program. <br><br>✅ NOTE that 'Swiss-Prot' represents the AA composition in Swiss-Prot database. In a similar way, 'extracellular proteins', 'membrane proteins' and 'intracellular proteins' represent the AA compositions in each type of protein. 'Non-biassed distribution' equally gives 0.05 to all of the animo acid probabilities.</span></label>        :</label>
-			<select id="bgdist" name="bgdist" class="customSelect cs_sl">
+			<select id="bgdist" name="bgdist" class="customSelect">
 				<option value="blosum62" selected>BLOSUM62</option>
 				<option value="swissprot">Swiss-Prot</option>
 				<option value="extra">Eextracellular proteins</option>
@@ -59,7 +59,7 @@
 
 		<p>
 			<label for="weighting" style="white-space : pre-wrap;">Sequence weighting method<label class="toolTip">🤔<span class="toolTip-content">2 types of sequence weighting method to reduce redundancy in an input MSA are implemented in this program, the Position-Based method by Henikoff-Henikoff and the Distance-Based method by Vingron-Argos.</span></label>      :</label>
-			<select id="weighting" name="weighting" class="customSelect cs_sl">
+			<select id="weighting" name="weighting" class="customSelect">
 				<option value="hen" selected>Position-Based</option>
 				<option value="va">Distance-Based</option>
 			</select>
@@ -67,7 +67,7 @@
 
 		<p>
 			<label for="tolerate" style="white-space : pre-wrap;" >Tolerate non-standard residues<label class="toolTip">🤔<span class="toolTip-content">If Yes, the program tolerates non-standard residues such as 'B', 'Z' and 'X' etc. in an input dataset by converting them into gap symbols.<br><br>If No, the program halts anyway if an input dataset includes these non-standard residues.</span></label> :</label>
-			<select id="tolerate" name="tolerate" class="customSelect cs_sl">
+			<select id="tolerate" name="tolerate" class="customSelect">
 				<option value="yes" selected>Yes</option>
 				<option value="no">No</option>
 			</select>
@@ -75,7 +75,7 @@
 
 		<p>
 			<label for="colorize-site" style="white-space : pre-wrap;" >Colorize the residues<label class="toolTip">🤔<span class="toolTip-content">If Yes, residues in each site are colorized based on their 6 types of sterochemical propaty as follows:<br><br><span style="background-color:#FFD615; color:#000000;"> Aliphatic ( A, V, L, I, M, C ) </span><br><br><span style="background-color:#05DFD7; color:#000000;"> Aromatic        ( F, W, Y, H ) </span><br><br><span style="background-color:#54E346; color:#000000;"> Polar           ( S, T, N, Q ) </span><br><br><span style="background-color:#4B7BE5; color:#FFFFFF;"> Positive              ( K, R ) </span><br><br><span style="background-color:#FF6363; color:#FFFFFF;"> Negative              ( D, E ) </span><br><br><span style="background-color:#B983FF; color:#000000;"> Special conformations ( G, P ) </span><br></label>          :</label>
-			<select id="colorize-site" name="colorize-site" class="customSelect cs_sl">
+			<select id="colorize-site" name="colorize-site" class="customSelect">
 				<option value="yes" selected>Yes</option>
 				<option value="no">No</option>
 			</select>
@@ -83,7 +83,7 @@
 
 		<p>
 			<label for="colorize-score" style="white-space : pre-wrap;" >Colorize the scores<label class="toolTip">🤔<span class="toolTip-content">Make the conservation scores have a color gradient in response to their values as follows:<br><br>Thermo            : <span style="color:#88B840; font-size:15px;">■</span><span style="color:#C3D323; font-size:15px;">■</span><span style="color:#F9EC35; font-size:15px;">■</span><span style="color:#ED8D1F; font-size:15px;">■</span><span style="color:#E86523; font-size:15px;">■</span><span style="color:#E34017; font-size:15px;">■</span><br>Ocean             : <span style="color:#90EE90; font-size:15px;">■</span><span style="color:#67D89A; font-size:15px;">■</span><span style="color:#34BEA5; font-size:15px;">■</span><span style="color:#1EA9AC; font-size:15px;">■</span><span style="color:#1D80AF; font-size:15px;">■</span><span style="color:#1C61B1; font-size:15px;">■</span><br>Flame             : <span style="color:#FEF001; font-size:15px;">■</span><span style="color:#FFCE03; font-size:15px;">■</span><span style="color:#FD9A01; font-size:15px;">■</span><span style="color:#FD6104; font-size:15px;">■</span><span style="color:#FF2C05; font-size:15px;">■</span><span style="color:#F00505; font-size:15px;">■</span><br>Neon              : <span style="color:#02F2F5; font-size:15px;">■</span><span style="color:#25CFF3; font-size:15px;">■</span><span style="color:#4895FF; font-size:15px;">■</span><span style="color:#8357EB; font-size:15px;">■</span><span style="color:#D63BFE; font-size:15px;">■</span><span style="color:#FC2CFF; font-size:15px;">■</span><br>V a p o r W a v e : <span style="color:#FFFF02; font-size:15px;">■</span><span style="color:#FED825; font-size:15px;">■</span><span style="color:#FFA15A; font-size:15px;">■</span><span style="color:#FF6496; font-size:15px;">■</span><span style="color:#FE2BCC; font-size:15px;">■</span><span style="color:#EC02E2; font-size:15px;">■</span></span></label>            :</label>
-			<select id="colorize-score" name="colorize-score" class="customSelect cs_sl">
+			<select id="colorize-score" name="colorize-score" class="customSelect">
 				<option value="none" selected>None</option>
 				<option value="thermo">Thermo</option>
 				<option value="ocean">Ocean</option>
