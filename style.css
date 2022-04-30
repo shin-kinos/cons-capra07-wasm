@@ -311,9 +311,6 @@ label.toolTip {
 		margin                     : 0 auto;
 		min-width                  : 40.625rem;
 		text-align                 : center;
-		white-space                : nowrap;
-		overflow-x                 : auto;
-		-webkit-overflow-scrolling : touch;
 	}
 
 	.style_options {
@@ -328,9 +325,6 @@ label.toolTip {
 		margin                     : 0 auto;
 		min-width                  : 40.625rem;
 		text-align                 : center;
-		white-space                : nowrap;
-		overflow-x                 : auto;
-		-webkit-overflow-scrolling : touch;
 	}
 
 	.customButton{
