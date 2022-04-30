@@ -259,7 +259,7 @@ label.toolTip {
 	opacity    : 1;
 }
 
-@media screen and ( max-width : 768px ) {
+@media screen and ( max-width : 428px ) {
 
 	.style_link {
 		position    : relative;
