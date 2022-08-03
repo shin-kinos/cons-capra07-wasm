@@ -7,6 +7,7 @@ mod entropy;
 mod fasta;
 mod gap;
 mod weighting;
+mod window;
 
 #[wasm_bindgen(module="/js/error-bomb.js")]
 extern "C" {
@@ -20,10 +21,10 @@ pub fn get_site_list_as_string( file_input : &str, opt_t : &str ) -> String {
 
 	/* Read an input file and get FASTA information. */
 	let mut data = fasta::Fasta::new();
-	data.read_fasta_info( &( fin_vec /* opts.input */ ) );
+	data.read_fasta_info( &( fin_vec ) );
 
 	/* Check whether the input file is correct FASTA format. */
-	data.check_fasta_info( /*&( opts.tolerate )*/ &( opt_t.to_string() ) /*&("yes".to_string())*/ );
+	data.check_fasta_info(  &( opt_t.to_string() ) );
 
 	/* Get site information as Vec<String>. */
 	data.get_site_list();
@@ -52,9 +53,14 @@ pub fn calc_cons_capra07(
 	file_input : &str,
 	opt_t      : &str,
 	opt_w      : &str,
-	opt_b      : &str
+	opt_b      : &str,
+	opt_wi     : i32,
 ) -> String {
 
+	/* Convert the window size type into 'usize'. */
+	let opt_wi_usize = opt_wi as usize;
+
+	/* Get input file information. */
 	let fin_vec : Vec<&str> = file_input.split( '\n' ).collect();
 
 	/* Read an input file and get FASTA information. */
@@ -66,6 +72,9 @@ pub fn calc_cons_capra07(
 
 	/* Get site information as Vec<String>. */
 	data.get_site_list();
+
+	/* Check window size for moivng aveage. */
+	window::check_window_size( opt_wi_usize, ( data.site_list ).len() );
 
 	/*
 	for i in 0 .. ( data.site_list ).len() {
@@ -104,13 +113,15 @@ pub fn calc_cons_capra07(
 	}
 	*/
 
-	let cons_capra07_list : Vec<f64> = entropy::js_divergence(
+	let mut cons_capra07_list : Vec<f64> = entropy::js_divergence(
 		&( data.site_list ),
 		&weight_list,
 		&gap_pen_list,
 		&( opt_b.to_string() )
 	);
 
+	/* Calculate moving average with window size set. */
+	if opt_wi_usize != 0 { cons_capra07_list = window::moving_average( &cons_capra07_list, opt_wi_usize ); }
 
 	/*
 	for i in 0 .. cons_capra07_list.len() {
