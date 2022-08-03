@@ -2,7 +2,7 @@
 
 A Rust WebAssembly online web application that scores residue conservation a site in a Multiple Sequence Alignment ( MSA ) by using Jensen-Shannon divergence. 📦🦀 
 
-[GitHub Pages](https://shin-kinos.github.io/cons-capra07-wasm/) 
+### [GitHub Pages 👈](https://shin-kinos.github.io/cons-capra07-wasm/) 
 
 ## Description 
 
@@ -16,7 +16,7 @@ A Rust WebAssembly online web application that scores residue conservation a sit
 
 The conservation score is calculated based on JSD as follows: 
 
-![readme image 1](./image/conservation_jsd.png) 
+![readme image 1](./image/conservation_jsd.jpg) 
 
 where ***Pc*** is a site distribution, ***q*** is a background distribution, ***r = ( Pc + q ) / 2*** and ***RE*** is the Relative Entropy ( RE ). 
 
@@ -33,7 +33,7 @@ This program supports 2 types of sequence weighting:
 
 The simple gap penalty method is given as follows: 
 
-![readme image 2](./image/gap_penalty.png) 
+![readme image 2](./image/gap_penalty.jpg) 
 
 where ***L*** is the length of a site ( or number of the sequences in the MSA ) and ***Wj*** is the weighting factor of sequence ***j***. The gap penalty of site ***i*** is given by calculating sum of weighting factors assigned to the gaps in sequence ***j***. 
 
@@ -53,6 +53,14 @@ The RE requires a background distribution. In this program, 9 background distrib
 
 Gaps are ignored as well as site distributions. 
 
+### Incorporating neighboring residues 
+
+Positions near in space and sequence to functionally important residues are known to be more conserved than average. To take this tendency into account, a following method introduced by Capra and Singh [1] incorporates sequential neighboring sites to modify each score: 
+
+![readme image 3](./image/window_score.jpg) 
+
+where ***window*** represents the number of the neighboring sites on either side of site ***C***. And ***Sc*** and ***Si*** are conservation score of each site. 
+
 ## Usage 
 
 #### Input file format 
@@ -61,7 +69,7 @@ The input file format MUST be Aligned Multi-FASTA that is constructed from amino
 
 ⚠️ NOTE that nucleotide sequences are not supported. 
 
-![readme image 2](./image/input.png) 
+![readme image 4](./image/input.jpg) 
 
 If you do not have an Aligned Multi-FASTA file that you aim to analyse and would like to use an example dataset, check `Use example dataset □`. 
 
@@ -89,3 +97,4 @@ Hover the mouse cursor over that `🤔` emoji marks to see much detailed informa
 6. Jones, David T., William R. Taylor, and Janet M. Thornton. "The rapid generation of mutation data matrices from protein sequences." Bioinformatics 8.3 (1992): 275-282. 
 7. Whelan, Simon, and Nick Goldman. "A general empirical model of protein evolution derived from multiple protein families using a maximum-likelihood approach." Molecular biology and evolution 18.5 (2001): 691-699. 
 8. Le, Si Quang, and Olivier Gascuel. "An improved general amino acid replacement matrix." Molecular biology and evolution 25.7 (2008): 1307-1320. 
+
