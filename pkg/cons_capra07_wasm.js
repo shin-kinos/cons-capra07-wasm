@@ -1,25 +1,27 @@
-import { console_log, error_bomb } from './snippets/cons-capra07-wasm-087060cc75d85830/js/error-bomb.js';
+import { console_log, error_bomb } from './snippets/cons-capra07-wasm-c603e57d3ab40268/js/error-bomb.js';
 
 let wasm;
 
-let cachegetInt32Memory0 = null;
+let cachedInt32Memory0 = new Int32Array();
+
 function getInt32Memory0() {
-    if (cachegetInt32Memory0 === null || cachegetInt32Memory0.buffer !== wasm.memory.buffer) {
-        cachegetInt32Memory0 = new Int32Array(wasm.memory.buffer);
+    if (cachedInt32Memory0.byteLength === 0) {
+        cachedInt32Memory0 = new Int32Array(wasm.memory.buffer);
     }
-    return cachegetInt32Memory0;
+    return cachedInt32Memory0;
 }
 
 const cachedTextDecoder = new TextDecoder('utf-8', { ignoreBOM: true, fatal: true });
 
 cachedTextDecoder.decode();
 
-let cachegetUint8Memory0 = null;
+let cachedUint8Memory0 = new Uint8Array();
+
 function getUint8Memory0() {
-    if (cachegetUint8Memory0 === null || cachegetUint8Memory0.buffer !== wasm.memory.buffer) {
-        cachegetUint8Memory0 = new Uint8Array(wasm.memory.buffer);
+    if (cachedUint8Memory0.byteLength === 0) {
+        cachedUint8Memory0 = new Uint8Array(wasm.memory.buffer);
     }
-    return cachegetUint8Memory0;
+    return cachedUint8Memory0;
 }
 
 function getStringFromWasm0(ptr, len) {
@@ -122,9 +124,10 @@ export function get_site_list_as_string(file_input, opt_t) {
 * @param {string} opt_t
 * @param {string} opt_w
 * @param {string} opt_b
+* @param {number} opt_wi
 * @returns {string}
 */
-export function calc_cons_capra07(file_input, opt_t, opt_w, opt_b) {
+export function calc_cons_capra07(file_input, opt_t, opt_w, opt_b, opt_wi) {
     try {
         const retptr = wasm.__wbindgen_add_to_stack_pointer(-16);
         const ptr0 = passStringToWasm0(file_input, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
@@ -135,7 +138,7 @@ export function calc_cons_capra07(file_input, opt_t, opt_w, opt_b) {
         const len2 = WASM_VECTOR_LEN;
         const ptr3 = passStringToWasm0(opt_b, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
         const len3 = WASM_VECTOR_LEN;
-        wasm.calc_cons_capra07(retptr, ptr0, len0, ptr1, len1, ptr2, len2, ptr3, len3);
+        wasm.calc_cons_capra07(retptr, ptr0, len0, ptr1, len1, ptr2, len2, ptr3, len3, opt_wi);
         var r0 = getInt32Memory0()[retptr / 4 + 0];
         var r1 = getInt32Memory0()[retptr / 4 + 1];
         return getStringFromWasm0(r0, r1);
@@ -176,32 +179,60 @@ async function load(module, imports) {
     }
 }
 
+function getImports() {
+    const imports = {};
+    imports.wbg = {};
+    imports.wbg.__wbg_consolelog_5434eaa51cb733d6 = function(arg0, arg1) {
+        console_log(getStringFromWasm0(arg0, arg1));
+    };
+    imports.wbg.__wbg_errorbomb_bc0702b6b0c06eb8 = function(arg0, arg1) {
+        error_bomb(getStringFromWasm0(arg0, arg1));
+    };
+
+    return imports;
+}
+
+function initMemory(imports, maybe_memory) {
+
+}
+
+function finalizeInit(instance, module) {
+    wasm = instance.exports;
+    init.__wbindgen_wasm_module = module;
+    cachedInt32Memory0 = new Int32Array();
+    cachedUint8Memory0 = new Uint8Array();
+
+
+    return wasm;
+}
+
+function initSync(bytes) {
+    const imports = getImports();
+
+    initMemory(imports);
+
+    const module = new WebAssembly.Module(bytes);
+    const instance = new WebAssembly.Instance(module, imports);
+
+    return finalizeInit(instance, module);
+}
+
 async function init(input) {
     if (typeof input === 'undefined') {
         input = new URL('cons_capra07_wasm_bg.wasm', import.meta.url);
     }
-    const imports = {};
-    imports.wbg = {};
-    imports.wbg.__wbg_consolelog_7cffed02dd57c211 = function(arg0, arg1) {
-        console_log(getStringFromWasm0(arg0, arg1));
-    };
-    imports.wbg.__wbg_errorbomb_e1bf4e4b76d9d14d = function(arg0, arg1) {
-        error_bomb(getStringFromWasm0(arg0, arg1));
-    };
+    const imports = getImports();
 
     if (typeof input === 'string' || (typeof Request === 'function' && input instanceof Request) || (typeof URL === 'function' && input instanceof URL)) {
         input = fetch(input);
     }
 
-
+    initMemory(imports);
 
     const { instance, module } = await load(await input, imports);
 
-    wasm = instance.exports;
-    init.__wbindgen_wasm_module = module;
-
-    return wasm;
+    return finalizeInit(instance, module);
 }
 
+export { initSync }
 export default init;
-
