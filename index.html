@@ -66,6 +66,28 @@
 		</p>
 
 		<p>
+			<label for="window" style="white-space : pre-wrap;">Window size<label class="toolTip">🤔<span class="toolTip-content">By setting this window, incorporating sequential neighboring sites can be taken into account among the conservation scores.<br><br>[e.g.] If the window size is 3, a set of 3 conservation scores on either side of site n (n-3, n-2, n-1, n+1, n+2 and n+3) are taken into account as moving average.</span></label>                    :</label>
+			<select id="window" name="window" class="customSelect">
+				<option value="0">0</option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3" selected>3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				<option value="6">6</option>
+				<option value="7">7</option>
+				<option value="8">8</option>
+				<option value="9">9</option>
+				<option value="10">10</option>
+				<option value="11">11</option>
+				<option value="12">12</option>
+				<option value="13">13</option>
+				<option value="14">14</option>
+				<option value="15">15</option>
+			</select>
+		</p>
+
+		<p>
 			<label for="tolerate" style="white-space : pre-wrap;" >Tolerate non-standard residues<label class="toolTip">🤔<span class="toolTip-content">If Yes, the program tolerates non-standard residues such as 'B', 'Z' and 'X' etc. in an input dataset by converting them into gap symbols.<br><br>If No, the program halts anyway if an input dataset includes these non-standard residues.</span></label> :</label>
 			<select id="tolerate" name="tolerate" class="customSelect">
 				<option value="yes" selected>Yes</option>
@@ -114,6 +136,7 @@
 		var opt_t;
 		var opt_w;
 		var opt_b;
+		var opt_W; /* Window size. */
 		var opt_C; /* Colorize score. */
 		var opt_c; /* Colorize site.  */
 
@@ -148,10 +171,12 @@
 				opt_b = document.getElementById( "bgdist"         ).value;
 				opt_C = document.getElementById( "colorize-score" ).value;
 				opt_c = document.getElementById( "colorize-site"  ).value;
+				opt_W = parseInt( document.getElementById( "window" ).value ); // Convert from string to int.
 
 				console.log( "Option-tolerate         : " + opt_t );
 				console.log( "Option-weighting        : " + opt_w );
 				console.log( "Background distribution : " + opt_b );
+				console.log( "Window size             : " + opt_W );
 				console.log( "Colorize the score      : " + opt_C );
 				console.log( "Colorize the site       : " + opt_c );
 
@@ -166,7 +191,8 @@
 					input_text,
 					opt_t,
 					opt_w,
-					opt_b
+					opt_b,
+					opt_W
 				);
 
 				show_result(
